@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eee7fa"><title>From This Day Forward</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header><div class="brand">FROM THIS DAY FORWARD</div><p>Grow together, one day at a time.</p></header>
+  <main>
+    <section id="setup" class="panel">
+      <h1>Make this your space 💜</h1>
+      <p>Connect your shared space, then you and your partner can sign in from your own phones.</p>
+      <label>Supabase project URL<input id="projectUrl" placeholder="https://your-project.supabase.co"></label>
+      <label>Supabase publishable (anon) key<input id="anonKey" placeholder="Your public/publishable key"></label>
+      <button id="connect">Connect</button><small>These are public client settings. Never enter your database password or service-role key.</small>
+    </section>
+    <section id="auth" class="panel hidden">
+      <h2>Sign in or create your account</h2>
+      <label>Email<input id="email" type="email" autocomplete="email"></label>
+      <label>Password<input id="password" type="password" autocomplete="current-password"></label>
+      <div class="actions"><button id="signup">Create account</button><button class="secondary" id="signin">Sign in</button></div>
+      <p id="authMsg" class="notice"></p>
+    </section>
+    <section id="couple" class="panel hidden">
+      <h2>Your shared space</h2><p>Create a space and share its invite code with your partner, or join theirs.</p>
+      <label>Your name<input id="displayName" placeholder="Brylee or Blake"></label>
+      <div class="actions"><button id="createCouple">Create our space</button></div>
+      <label>Invite code<input id="inviteCode" placeholder="Enter their code"></label>
+      <button class="secondary" id="joinCouple">Join a space</button>
+      <p id="coupleMsg" class="notice"></p>
+    </section>
+    <section id="app" class="hidden">
+      <div class="welcome panel"><div><span class="eyebrow">YOUR SHARED JOURNEY</span><h1 id="hello">Growing together</h1><p id="partnerLine">Two people. One team.</p></div><button class="secondary small" id="logout">Sign out</button></div>
+      <div class="panel progress-panel"><div class="progress-head"><h2>Our progress</h2><strong id="progressText">0%</strong></div><div class="track"><div id="progressBar"></div></div><p class="muted">Completed commitments and activities update for both of you.</p></div>
+      <div class="tabs"><button class="tab active" data-tab="commitments">Commitments</button><button class="tab" data-tab="journal">Journal</button><button class="tab" data-tab="boosters">30-day boosters</button></div>
+      <section id="commitments" class="panel"></section>
+      <section id="journal" class="panel hidden">
+        <h2>Our check-in journal</h2><p>Write a thought, prayer, goal, or something you appreciate. Both of you can see entries.</p>
+        <textarea id="journalText" rows="4" placeholder="What is on your heart today?"></textarea><button id="saveJournal">Save entry</button><div id="journalList"></div>
+      </section>
+      <section id="boosters" class="panel hidden"><h2>Little ways to love well</h2><p>Choose a daily booster and mark it complete together.</p><div id="boosterList"></div></section>
+    </section>
+    <p id="globalMsg" class="notice"></p>
+  </main>
+  <footer>Built for two people choosing to keep growing. 💜</footer>
+  <script src="app.js"></script>
+</body></html>
