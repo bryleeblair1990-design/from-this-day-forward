@@ -28,3 +28,9 @@ async function renderJournal(){if(!couple)return;let {data,error}=await sb.from(
 $("saveJournal").onclick=async()=>{let body=$("journalText").value.trim();if(!body)return;let {error}=await sb.from("couple_journal").insert({couple_id:couple,body,author_name:memberName});if(error)return msg("globalMsg",error.message);$("journalText").value="";await renderJournal()};
 function renderBoosters(){ $("boosterList").innerHTML=boosters.map((b,i)=>`<label class="booster"><input type="checkbox" data-booster="${i}"><span><strong>Day ${i+1}:</strong> ${b}</span></label>`).join("")}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+// Automatically connect to the shared Supabase project
+const PROJECT_URL = "https://riqx mkygbhqhdhazhykt.supabase.co".replace(" ", "");
+const PUBLISHABLE_KEY = "sb_publishable_swsMtFaJyUWzU5STGM3uOw_g9MiArQy";
+
+connect(PROJECT_URL, PUBLISHABLE_KEY);
